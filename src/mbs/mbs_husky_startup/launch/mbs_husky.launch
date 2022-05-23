@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Launch standard Husky base drivers -->
+  <include file="$(find mbs_husky_startup)/launch/include/husky_base.launch" />
+
+  <!-- Launch Phidgets Imu -->
+  <include file="$(find mbs_husky_startup)/launch/include/phidgets_driver.launch" />
+
+  <!-- Launch Power Relay -->
+  <include file="$(find mbs_husky_startup)/launch/include/power_relay.launch" />
+  
+</launch>
+
