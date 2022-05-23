@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <!-- Arduino power relay control -->
-    <node name="power_relay_node"        pkg="rosserial_arduino"      type="serial_node.py">
-      <param name="port"              type="string"               value="/dev/ttyUSB0"/>
-      <param name="baud"              type="int"                  value="57600"/>
-    </node>
-</launch>

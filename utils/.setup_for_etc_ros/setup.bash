@@ -1,1 +1,0 @@
-export ROBOT_SETUP=/etc/ros/setup.bash

@@ -1,8 +1,0 @@
-#goal         
-int64 final_position
----
-#result
-bool status
----
-#feedback
-int64 current_position
