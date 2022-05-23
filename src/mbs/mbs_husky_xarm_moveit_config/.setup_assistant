@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: mbs_husky_description
+    relative_path: urdf/husky_xarm.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/husky.srdf
+  CONFIG:
+    author_name: Salman Omar Sohail
+    author_email: salman.sohail@mybotshop.de
+    generated_timestamp: 1652884591

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="mbs_xarm_robotiq" name="robotiq_node" type="robotiq_2f.py" output="screen"/>
+</launch>
