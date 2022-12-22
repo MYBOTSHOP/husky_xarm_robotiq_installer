@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>mbs_husky_viz</name>
+  <version>0.0.0</version>
+  <description>Rviz display</description>
+
+  <maintainer email="support@mybotshop.de">Salman Omar Sohail</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <export>
+  </export>
+
+</package>

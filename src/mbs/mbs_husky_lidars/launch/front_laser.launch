@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="host" default="$(env FRONT_LASER_IP)" doc="ip or host name of lidar" />
+    <arg name="lidar_frame_id" default="blick_sensor" doc="frame to give to this lidar sensors point cloud output" />
+    <arg name="node_name" default="front_laser" doc="Name of this node." />
+      <arg name="use_lidar_timestamp" default="false" />
+    <include file="$(find blickfeld_driver)/launch/live_scanner.launch" pass_all_args="true" />
+</launch>

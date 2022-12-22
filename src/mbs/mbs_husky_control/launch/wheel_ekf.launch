@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- Run the ekf for odom to base_link config for wheel odom-->
+	<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_with_odom" >
+		<rosparam command="load" file="$(find mbs_husky_control)/config/wheel_localization_config.yaml" />
+		<remap from="/odometry/filtered" to="/odom"/>
+	</node>
+</launch>

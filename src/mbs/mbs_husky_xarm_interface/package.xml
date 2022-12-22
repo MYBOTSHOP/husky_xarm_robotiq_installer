@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mbs_husky_xarm_interface</name>
+  <version>0.0.0</version>
+  <description>The mbs_husky_xarm_interface package</description>
+  <maintainer email="tahir.mehmood@mybotshop.de">Tahir Mehmood</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <export>
+  </export>
+</package>

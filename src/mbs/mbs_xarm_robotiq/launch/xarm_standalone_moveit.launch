@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="robot_ip" default="192.168.132.1" />
+  <arg name="robot_ip" default="192.168.131.4" />
   <arg name="report_type" default="normal" />	
   <arg name="show_rviz" default="true" />
   <!-- NO_GUI_CTRL means that Rviz configuration is just for display purpose, no (Moveit) control panel loaded -->

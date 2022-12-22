@@ -1,0 +1,70 @@
+---------------------------------------------------------------------------------------------------
+ __  ____     ______   ____ _______ _____ _    _  ____  _____           _____
+|  \/  \ \   / /  _ \ / __ \__   __/ ____| |  | |/ __ \|  __ \         / ____|
+| \  / |\ \_/ /| |_) | |  | | | | | (___ | |__| | |  | | |__) |  _   _| |  __
+| |\/| | \   / |  _ <| |  | | | |  \___ \|  __  | |  | |  ___/  | | | | | |_ |
+| |  | |  | |  | |_) | |__| | | |  ____) | |  | | |__| | |      | |_| | |__| |
+|_|  |_|  |_|  |____/ \____/  |_| |_____/|_|  |_|\____/|_|       \__,_|\_____|
+
+Current PC: Husky
+---------------------------------------------------------------------------------------------------
+
+Husky IP:     192.168.131.1 (ssh -X administrator@192.168.131.1) (WiFi)
+Pswd:         clearpath
+
+Nvidia IP:    192.168.131.2 (ssh -X administrator@192.168.131.2) (LAN)
+Pswd:         clearpath
+
+Blick IP:     192.168.131.3 (LAN)
+
+xARM IP:      192.168.131.4 (LAN/WiFi)
+xARM IP Web:  192.168.131.4:18333 (LAN)
+
+Ouster IP:    192.168.132.1 (LAN)
+
+WiFi IP:      192.168.131.101 (Long range)
+Pswd:         clearpath
+Router Name:  root
+
+---------------------------------------------------------------------------------------------------
+Husky-Drivers
+---------------------------------------------------------------------------------------------------
+
+Husky status:     sudo service mbs_husky status
+Husky start:      sudo service mbs_husky start
+Husky stop:       sudo service mbs_husky stop
+Husky restart:    sudo service mbs_husky restart
+
+View robot:       roslaunch mbs_husky_viz viz.launch
+
+---------------------------------------------------------------------------------------------------
+Auxiliary driver:
+---------------------------------------------------------------------------------------------------
+
+Ouster driver:   roslaunch mbs_husky_lidars top_laser.launch 
+                 (Launches on startup)
+
+Blick driver:    roslaunch mbs_husky_lidars top_laser.launch
+                 (Launches on startup)
+
+xARM driver:     roslaunch mbs_husky_xarm_interface real_arm_moveit.launch
+                 (Doesnt launch on startup)
+
+---------------------------------------------------------------------------------------------------
+Waypoint driver
+---------------------------------------------------------------------------------------------------
+
+Odom Navigation driver: roslaunch mbs_navigation odom_navigation.launch
+                        (Launches Ouster, Velocity Smoother, SensorFusion, Movebase, Empty Mapserver)
+
+GPS Navigation driver:  roslaunch mbs_gps_navigation gps_navigation.launch
+                        (Launches Emlid, Ouster, Velocity Smoother, Navsat, Movebase, SensorFusion,
+                         Empty Mapserver)
+
+Indoor-Collect waypoints: roslaunch mbs_waypoint_follower indoor_record_waypoints.launch
+Indoor-Follow waypoints:  roslaunch mbs_waypoint_follower indoor_follow_waypoints.launch
+
+Outdoor-Collect waypoints: roslaunch mbs_waypoint_follower outdoor_record_waypoints.launch
+Outdoor-Follow waypoints:  roslaunch mbs_waypoint_follower outdoor_follow_waypoints.launch
+
+---------------------------------------------------------------------------------------------------

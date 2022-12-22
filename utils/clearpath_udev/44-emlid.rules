@@ -1,0 +1,1 @@
+SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="3032:0013", NAME="emlid0"

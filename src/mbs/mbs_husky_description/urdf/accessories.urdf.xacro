@@ -32,4 +32,85 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
 
+  <!-- Link Ouster holder base to front mount -->
+  <link name="auxiliary_sensor_frame">
+    <visual>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/auxiliary_frame.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/auxiliary_frame.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="ouster_holder_base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="auxiliary_sensor_frame" />
+    <origin xyz="-0.25 0 0.25" rpy="0 0 1.57" />
+  </joint>
+
+  <!-- Link Ouster to base -->
+  <link name="os_sensor">
+    <visual>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/os1_64.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/os1_64.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="ouster_joint" type="fixed">
+    <parent link="auxiliary_sensor_frame" />
+    <child link="os_sensor" />
+    <origin xyz="0 0 0.545" rpy="3.14059 0 -1.57" />
+  </joint>
+
+  <!-- Link Blicklidar to base -->
+  <link name="blick_sensor">
+    <visual>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/blick_sensor.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/blick_sensor.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="blick_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="blick_sensor" />
+    <origin xyz="0.40 0 0.23" rpy="-1.57 0 -1.57" />
+  </joint>
+
+  <!-- Link Blicklidar to base -->
+  <link name="qoocam_sensor">
+    <visual>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/qoocam.dae" scale="0.01 0.01 0.01"/>
+          <material name="black"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+          <mesh filename="package://mbs_husky_description/meshes/qoocam.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="qoocam_joint" type="fixed">
+    <parent link="auxiliary_sensor_frame" />
+    <child link="qoocam_sensor" />
+    <origin xyz="0.005 0.0 0.62" rpy="1.57 0.0 0.0" />
+  </joint>
+
 </robot>

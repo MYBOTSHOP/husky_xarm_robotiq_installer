@@ -6,13 +6,11 @@
 
   <license>BSD</license>
 
-  <maintainer email="pbovbel@clearpathrobotics.com">Paul Bovbel</maintainer>
+  <maintainer email="support@mybotshop.com">Salman Omar Sohail</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>husky_description</run_depend>
   <run_depend>urdf</run_depend>
   <run_depend>xacro</run_depend>
 
-  <export>
-  </export>
 </package>

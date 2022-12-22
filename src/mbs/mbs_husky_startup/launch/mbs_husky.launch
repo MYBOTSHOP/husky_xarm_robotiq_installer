@@ -3,12 +3,24 @@
 
   <!-- Launch standard Husky base drivers -->
   <include file="$(find mbs_husky_startup)/launch/include/husky_base.launch" />
+  <!-- <include file="$(find husky_base)/launch/base.launch" /> -->
 
-  <!-- Launch Phidgets Imu -->
-  <include file="$(find mbs_husky_startup)/launch/include/phidgets_driver.launch" />
-
-  <!-- Launch Power Relay -->
-  <include file="$(find mbs_husky_startup)/launch/include/power_relay.launch" />
+  <!-- UM7 IMU Driver -->
+  <!-- <include file="$(find mbs_husky_startup)/launch/include/um7_imu_driver.launch" />  -->
   
-</launch>
+  <!-- Phidgets IMU Driver -->
+  <include file="$(find mbs_husky_startup)/launch/include/phidget_imu_driver.launch" />
+  
+  <!-- Odom Localization Driver -->
+  <include file="$(find mbs_husky_control)/launch/wheel_ekf.launch" /> 
 
+  <!-- Blickfeld front laser -->
+  <include file="$(find mbs_husky_lidars)/launch/front_laser.launch" /> 
+
+  <!-- Ouster laser on top  -->
+  <include file="$(find mbs_husky_lidars)/launch/top_laser.launch" /> 
+
+  <!-- XARM Driver -->
+  <include file="$(find mbs_husky_xarm_interface)/launch/real_arm.launch" /> 
+
+</launch>

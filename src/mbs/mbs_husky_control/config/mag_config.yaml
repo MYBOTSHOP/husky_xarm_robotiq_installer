@@ -1,0 +1,5 @@
+# Generated from /tmp/calibrate_compass.p2mu/imu_record.bag on 2022-08-29.
+use_mag: true
+mag_bias_x: 0.070950534
+mag_bias_y: -0.476337391
+mag_bias_z: -0.673099401

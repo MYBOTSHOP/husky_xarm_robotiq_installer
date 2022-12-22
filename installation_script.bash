@@ -23,41 +23,59 @@ function build_pkg () {
     cd $path/$ws
 }
 
+function install_dependencies () {
+    color_echo "Installing non-ros dependencies."
+    sudo apt-get install build-essential\
+    cmake\
+    libglfw3-dev\
+    libglew-dev\
+    libeigen3-dev\
+    libjsoncpp-dev\
+    libtclap-dev\
+    libserial-dev\
+    setserial
+}
+
 function install_binary_packages () {
     color_echo "Installing ros packages from binaries via rosdep."
     rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y    
     color_echo "Installing build pacakges."
-    sudo apt-get install ros-noetic-geodesy\
-    ros-noetic-robot-upstart\
-    ros-noetic-pcl-ros\
-    ros-noetic-nmea-msgs\
-    ros-noetic-libg2o\
-    ros-noetic-robot-localization\
-    ros-noetic-teb-local-planner\
-    ros-noetic-map-server\
-    ros-noetic-move-base\
-    ros-noetic-rviz\
-    ros-noetic-roslaunch\
-    ros-noetic-tf\
-    ros-noetic-std-msgs\
-    ros-noetic-actionlib\
-    ros-noetic-geometry-msgs\
-    ros-noetic-move-base-msgs\
-    ros-noetic-rospy\
-    ros-noetic-roscpp\
-    ros-noetic-soem\
-    ros-noetic-topic-tools\
-    ros-noetic-socketcan-interface\
-    ros-noetic-moveit-visual-tools\
-    ros-noetic-moveit-simple-controller-manager\
-    ros-noetic-moveit-ros-planning-interface\
-    ros-noetic-combined-robot-hws\
-    ros-noetic-rosserial-arduino\
-    ros-noetic-imu-filter-madgwick\
-    ros-noetic-moveit-ros-visualization\
-    ros-noetic-moveit-planners\
-    ros-noetic-husky*
+    sudo apt-get install ros-$ROS_DISTRO-geodesy\
+    ros-$ROS_DISTRO-robot-upstart\
+    ros-$ROS_DISTRO-pcl-ros\
+    ros-$ROS_DISTRO-nmea-msgs\
+    ros-$ROS_DISTRO-libg2o\
+    ros-$ROS_DISTRO-robot-localization\
+    ros-$ROS_DISTRO-teb-local-planner\
+    ros-$ROS_DISTRO-map-server\
+    ros-$ROS_DISTRO-move-base\
+    ros-$ROS_DISTRO-rviz\
+    ros-$ROS_DISTRO-roslaunch\
+    ros-$ROS_DISTRO-tf\
+    ros-$ROS_DISTRO-tf2-geometry-msgs\
+    ros-$ROS_DISTRO-std-msgs\
+    ros-$ROS_DISTRO-actionlib\
+    ros-$ROS_DISTRO-geometry-msgs\
+    ros-$ROS_DISTRO-move-base-msgs\
+    ros-$ROS_DISTRO-rospy\
+    ros-$ROS_DISTRO-roscpp\
+    ros-$ROS_DISTRO-soem\
+    ros-$ROS_DISTRO-topic-tools\
+    ros-$ROS_DISTRO-rosserial-arduino\
+    ros-$ROS_DISTRO-smach\
+    ros-$ROS_DISTRO-ecl-threads\
+    ros-$ROS_DISTRO-imu-filter-madgwick\
+    ros-$ROS_DISTRO-um7\
+    ros-$ROS_DISTRO-global-planner\
+    ros-$ROS_DISTRO-moveit-ros-visualization\
+    ros-$ROS_DISTRO-moveit-visual-tools\
+    ros-$ROS_DISTRO-moveit-planners\
+    ros-$ROS_DISTRO-pointcloud-to-laserscan\
+    ros-$ROS_DISTRO-combined-robot-hw\
+    ros-$ROS_DISTRO-phidgets*\
+    ros-$ROS_DISTRO-husky*
 }
+
 
 function update_ubuntu () {
     color_echo "Updating Ubuntu"
@@ -72,6 +90,8 @@ BLUE='\033[1;34m'
 CYAN='\033[1;36m'
 NC='\033[0m' 
 
+Var=$(lsb_release -d)
+
 current_directory=$PWD
 source /opt/ros/$ROS_DISTRO/setup.bash
 
@@ -84,18 +104,20 @@ echo -e " | |  | |  | |  | |_) | |__| | | |  ____) | |  | | |__| | |      | |_| 
 echo -e " |_|  |_|  |_|  |____/ \____/  |_| |_____/|_|  |_|\____/|_|       \__,_|\_____|"
 echo -e ""                                                                                                                                         
 echo -e "-------------------------------------------------------------------------------"
-echo -e "Installer Husky-XARM-ROBOTIQ "                                                                                                                                         
+echo -e "Installer Husky-xARM "                                                                                                                                         
 echo -e "-------------------------------------------------------------------------------${NC}"
 
 echo -e "${BLUE}Enter workspace name (e.g.: catkin_ws):  ${NC}" 
 read -p "" ws
 
-echo -e "${BLUE}Enter workspace path (e.g.: /home/user): ${NC}" 
+echo -e "${BLUE}Enter workspace path (e.g.: /home/administrator): ${NC}" 
 read -p "" path
 
+Var=($(lsb_release -d))
+
 echo ""
-echo -e "${RED}[Note]${NC} Target OS version                 >>> ${CYAN}Ubuntu 20.04${NC} "
-echo -e "${RED}[Note]${NC} Target ROS version                >>> ${CYAN}ROS Noetic${NC} "
+echo -e "${RED}[Note]${NC} Target OS version                 >>> ${CYAN}${Var[1]} ${Var[2]} ${Var[3]} ${NC}"
+echo -e "${RED}[Note]${NC} Target ROS version                >>> ${CYAN}ROS $ROS_DISTRO${NC} "
 echo -e "${RED}[Note]${NC} Catkin workspace                  >>> ${CYAN}$path/$ws${NC} "
 echo -e "${RED}[Note]${NC} Non-ROS package build space:      >>> ${CYAN}$path/$ws/utils${NC} "
 echo -e "${RED}[Note]${NC} Robot package build space:        >>> ${CYAN}$path/$ws/src/mbs${NC} "
@@ -120,6 +142,9 @@ cp -r $current_directory/utils .
 # Lets build non-ros dependencies 
 # build_pkg utils/--- true
 
+# Dependncy installation
+install_dependencies
+
 # Binary packages installation
 install_binary_packages
 
@@ -128,9 +153,14 @@ export MBS_PATH=$path/$ws
 echo "export MBS_PATH=$path/$ws" >> ~/.bashrc # For future use
 
 # Lets build everything for ROS
-catkin_make
+catkin_make --cmake-args -DCMAKE_BUILD_TYPE=Release
+
 source $path/$ws/devel/setup.bash
+
+# Adding ouster to bashrc
 echo "source $path/$ws/devel/setup.bash" >> ~/.bashrc
+echo "export MBS_OUSTER_IP=192.168.132.1" >> ~/.bashrc
+echo "export MBS_OUSTER_HOST=192.168.132.2" >> ~/.bashrc
 
 echo -e "Running startup script"
 rosrun mbs_husky_startup startup_script.sh

@@ -3,7 +3,9 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 829
   - Class: rviz/Selection
@@ -59,6 +61,11 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        auxiliary_sensor_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_footprint:
           Alpha: 1
           Show Axes: false
@@ -91,74 +98,16 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_inner_finger:
+        os_sensor:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_inner_finger_pad:
+        reach_rs:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_inner_knuckle:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_outer_finger:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_outer_knuckle:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_eef:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        phidgets_imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         rear_bumper_link:
           Alpha: 1
           Show Axes: false
@@ -174,40 +123,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        right_inner_finger:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_inner_finger_pad:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_inner_knuckle:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_outer_finger:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_outer_knuckle:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        robotiq_arg2f_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tcp:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         top_chassis_link:
           Alpha: 1
           Show Axes: false
@@ -231,16 +146,94 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        xarm_connector_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        auxiliary_sensor_frame:
+          Value: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: true
+        front_bumper_link:
+          Value: false
+        front_left_wheel_link:
+          Value: false
+        front_right_wheel_link:
+          Value: false
+        imu_link:
+          Value: true
+        inertial_link:
+          Value: false
+        os_sensor:
+          Value: false
+        reach_rs:
+          Value: false
+        rear_bumper_link:
+          Value: false
+        rear_left_wheel_link:
+          Value: false
+        rear_right_wheel_link:
+          Value: false
+        top_chassis_link:
+          Value: false
+        top_plate_front_link:
+          Value: false
+        top_plate_link:
+          Value: false
+        top_plate_rear_link:
+          Value: false
+        user_rail_link:
+          Value: false
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_link:
+          auxiliary_sensor_frame:
+            os_sensor:
+              {}
+          base_footprint:
+            {}
+          front_bumper_link:
+            {}
+          front_left_wheel_link:
+            {}
+          front_right_wheel_link:
+            {}
+          imu_link:
+            {}
+          inertial_link:
+            {}
+          reach_rs:
+            {}
+          rear_bumper_link:
+            {}
+          rear_left_wheel_link:
+            {}
+          rear_right_wheel_link:
+            {}
+          top_chassis_link:
+            {}
+          top_plate_link:
+            top_plate_front_link:
+              {}
+            top_plate_rear_link:
+              {}
+          user_rail_link:
+            {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 46; 48; 47
@@ -264,25 +257,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.0837554931640625
+      Distance: 0.6171025633811951
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0419590026140213
-        Y: -0.029970120638608932
-        Z: 0.16476236283779144
+        X: -0.716749370098114
+        Y: -0.7236953973770142
+        Z: 0.7411062717437744
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.44539934396743774
+      Pitch: 0.4047974944114685
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.8303656578063965
+      Yaw: 3.890367269515991
     Saved: ~
 Window Geometry:
   Displays:

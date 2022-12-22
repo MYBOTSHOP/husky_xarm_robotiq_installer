@@ -1,0 +1,7 @@
+<library path="lib/libblickfeld_driver_nodelet">
+  <class name="blickfeld_driver/driver_nodelet"
+         type="blickfeld::ros_interop::BlickfeldDriverNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description>Blickfeld Driver Nodelet.</description>
+  </class>
+</library>

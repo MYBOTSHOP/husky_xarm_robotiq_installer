@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>blickfeld_driver</name>
+  <version>1.5.1</version>
+  <description>ROS device driver for LiDAR devices by Blickfeld GmbH</description>
+
+  <maintainer email="hamidreza.houshiar@blickfeld.com">Hamidreza Houshiar</maintainer>
+
+  <license>BSD</license>
+  <url type="website">https://www.blickfeld.com</url>
+
+  <author email="dennis.maier@blickfeld.com">Dennis Maier</author>
+  <author email="andreas.wehe@blickfeld.com">Andreas Wehe</author>
+  <author email="simon.weigl@blickfeld.com">Simon Weigl</author>
+  <author email="robert.junge@blickfeld.com">Robert Junge</author>
+  <author email="ivo.ivanov@blickfeld.com">Ivo Ivanov</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+
+  <depend>roscpp</depend>
+  <depend>cv_bridge</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nodelet</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>rviz</exec_depend>
+
+  <doc_depend>doxygen</doc_depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+  </export>
+</package>
